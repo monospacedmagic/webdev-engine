@@ -1,0 +1,5 @@
+*.*
+workspace
+!.gitignore
+!community-plugins.json
+!core-plugins.json
