@@ -2,7 +2,46 @@
     "files.associations": {
         "*.json": "jsonc"
     },
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+    "psi-header.config": {
+        "forceToTop": true,
+        "blankLinesAfter": 1,
+        "spacesBetweenYears": false,
+        "license": "Custom", // MPL-2.0 is not using MPL v2.0 Exhibit A
+        "author": "monospacedmagic",
+        "copyrightHolder": "monospacedmagic"
+    },
+    "psi-header.license-text": [
+        "This Source Code Form is subject to the terms of",
+        "the Mozilla Public License, v. 2.0.",
+        "If a copy of the MPL was not distributed with this file,",
+        "You can obtain one at http://mozilla.org/MPL/2.0/."
+    ],
+    "psi-header.variables": [
+        ["monospacedmagic", "2022"]
+    ],
+    "psi-header.templates": [
+        {
+            "language": "javascript",
+            "template": [
+                "File: <<filename>>",
+                "Project: <<projectname>>",
+                "",
+                "Copyright (c) <<yeartoyear(fc, now)>> <<copyrightHolder>>",
+                "",
+                "<<licenseText>>"
+            ],
+            "changeLogCaption": "HISTORY",
+            "changeLogHeaderLineCount": 2,
+            "changeLogEntryTemplate": [
+                "",
+                "<<dateformat(DD-MM-YYYY)>>\t<<initials>>\t"
+            ],
+            "changeLogNaturalOrder": false,
+            "changeLogFooterLineCount": 0
+        },
+        {
+            "language": "typescript",
+            "mapTo": "javascript"
+        }
+    ]
 }
