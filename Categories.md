@@ -5,9 +5,10 @@ This document explains the categories that projects in this monorepo are grouped
 ## Apps
 - Contain Pages composed of Components, as well as Endpoints.
 - Based on SvelteKit.
+- Can be deployed individually.
 - Collectively make up the frontend.
 
-### Components
+## Components
 - (Collections of) Reusable Svelte components.
 
 ## Libraries
@@ -15,6 +16,7 @@ This document explains the categories that projects in this monorepo are grouped
 
 ## Services
 - Microservices with a GraphQL API.
+- Can be deployed individually.
 - Collectively make up the backend.
 
 ## Tools
