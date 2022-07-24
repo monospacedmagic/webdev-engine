@@ -50,6 +50,21 @@ then
     fi
 fi
 
+# Git LFS
+git lfs &> /dev/null
+if [[ $? -eq 1 ]] # Git LFS is not installed
+then
+    echo -n "Installing Git LFS... "
+    brew install git-lfs > /dev/null
+    git lfs install > /dev/null
+    if [[ $? -eq 0 ]]
+    then
+        echo "OK!"
+    else
+        exit 1
+    fi
+fi
+
 # Rush
 if ! command -v rush &> /dev/null
 then
