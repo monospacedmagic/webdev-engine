@@ -1,3 +1,7 @@
+---
+title: Categories
+---
+
 # Categories
 
 This document explains the categories that projects in this monorepo are grouped by.
@@ -10,6 +14,9 @@ This document explains the categories that projects in this monorepo are grouped
 
 ## Components
 - (Collections of) Reusable Svelte components.
+
+## Extensions
+- Eclipse Theia IDE extensions.
 
 ## Libraries
 - Collections of data structures and logic reusable across different (types of) projects.
