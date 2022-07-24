@@ -7,6 +7,7 @@ then
     (curl -o- https://gitcdn.link/cdn/nvm-sh/nvm/master/install.sh | $SHELL) > /dev/null
     if [[ $? -eq 0 ]]
     then
+        "\nexport NVM_DIR=~/.nvm\nsource $(brew --prefix nvm)/nvm.sh\n" >> $(HOME)/.$(SHELL)rc
         echo "OK!"
     else
         exit 1
