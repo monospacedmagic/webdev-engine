@@ -165,7 +165,15 @@
     //    * invoking the "shellCommand".
     //    */
     //   // "autoinstallerName": "my-task"
-    // }
+    // },
+    {
+      "commandKind": "global",
+      "name": "gen",
+      "summary": "Scaffolding tool",
+      "description": "Generates (parts of) projects based on a template",
+      "safeForSimultaneousRushProcesses": false,
+      "shellCommand": "./tools/generator/generate.sh"
+    }
   ],
 
   /**

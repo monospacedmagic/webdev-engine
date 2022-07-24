@@ -43,5 +43,21 @@
             "language": "typescript",
             "mapTo": "javascript"
         }
-    ]
+    ],
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "zsh",
+            "env": {
+                "ZDOTDIR": "${workspaceFolder}"
+            }
+        },
+        "bash": {
+            "path": "bash",
+            "args": [
+                "--init-file",
+                "${workspaceFolder}/.bashrc_local"
+            ]
+        }
+    }
 }
