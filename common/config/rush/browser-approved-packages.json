@@ -1,0 +1,30 @@
+// DO NOT ADD COMMENTS IN THIS FILE.  They will be lost when the Rush tool resaves it.
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/approved-packages.schema.json",
+  "packages": [
+    {
+      "name": "@pulumi/kubernetes",
+      "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "@pulumi/kubernetesx",
+      "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "@pulumi/pulumi",
+      "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "eslint",
+      "allowedCategories": [ "prototypes" ]
+    },
+    {
+      "name": "hygen",
+      "allowedCategories": [ "prototypes" ]
+    },
+    {
+      "name": "prettier",
+      "allowedCategories": [ "prototypes" ]
+    }
+  ]
+}
