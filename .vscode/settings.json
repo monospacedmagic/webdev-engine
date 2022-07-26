@@ -55,8 +55,8 @@
         "bash": {
             "path": "bash",
             "args": [
-                "--init-file",
-                "${workspaceFolder}/.bashrc_local"
+                "--rcfile",
+                "${workspaceFolder}/.bashrc"
             ]
         }
     }

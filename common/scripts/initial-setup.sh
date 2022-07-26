@@ -1,13 +1,23 @@
 #!/bin/bash
 
+shell_name="${SHELL##*/}"
+MONOREPO_ROOT="$(dirname $(readlink -f $0))/../.."
+
+if [ $shell_name = "zsh" ]
+then
+    source $MONOREPO_ROOT/.zshrc
+elif [ $shell_name = "bash" ]
+then
+    source $MONOREPO_ROOT/.bashrc
+fi
+
 # NVM
 if ! command -v nvm &> /dev/null
 then
     echo -n "Installing NVM... "
-    (curl -o- https://gitcdn.link/cdn/nvm-sh/nvm/master/install.sh | $SHELL) > /dev/null
-    if [[ $? -eq 0 ]]
+    (curl -s -o- https://gitcdn.link/cdn/nvm-sh/nvm/master/install.sh | bash) > /dev/null
+    if [ $? -eq 0 ]
     then
-        "\nexport NVM_DIR=~/.nvm\nsource $(brew --prefix nvm)/nvm.sh\n" >> $(HOME)/.$(SHELL)rc
         echo "OK!"
     else
         exit 1
@@ -16,13 +26,13 @@ fi
 
 # Node.js
 nvm use --silent
-if [[ $? -eq 3 ]] # required node version is not installed
+if [ $? -eq 3 ] # required node version is not installed
 then
     echo -n "Installing Node.js v"
     cat .nvmrc
     echo -n "... "
     nvm install > /dev/null
-    if [[ $? -eq 0 ]]
+    if [ $? -eq 0 ]
     then
         echo "OK!"
     else
@@ -53,12 +63,12 @@ fi
 
 # Git LFS
 git lfs &> /dev/null
-if [[ $? -eq 1 ]] # Git LFS is not installed
+if [ $? -eq 1 ] # Git LFS is not installed
 then
     echo -n "Installing Git LFS... "
     brew install git-lfs > /dev/null
     git lfs install > /dev/null
-    if [[ $? -eq 0 ]]
+    if [ $? -eq 0 ]
     then
         echo "OK!"
     else
@@ -72,7 +82,7 @@ then
     echo -n "Installing Rush... "
     local RUSH_VERSION=$(node -p "require('./rush.json').rushVersion")
     npm install -g rush@"${RUSH_VERSION}" > /dev/null
-    if [[ $? -eq 0 ]]
+    if [ $? -eq 0 ]
     then
         echo "OK!"
     else
@@ -81,11 +91,11 @@ then
 fi
 
 # Dependencies
-if ! [[ -d "$(dirname $(readlink -f $0))/common/temp/node_modules" ]]
+if ! [ -d "${MONOREPO_ROOT}/common/temp/node_modules" ]
 then
     echo -n "Installing dependencies... "
     rush install > /dev/null
-    if [[ $? -eq 0 ]]
+    if [ $? -eq 0 ]
     then
         echo "OK!"
     else
