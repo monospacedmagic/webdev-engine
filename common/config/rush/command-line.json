@@ -2,13 +2,16 @@
  * This configuration file defines custom commands for the "rush" command-line.
  * More documentation is available on the Rush website: https://rushjs.io
  */
+
+// Note: $RUSH_INVOKED_FOLDER can be used to develop
+// "local" commands that are available anywhere in the monorepo.
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
 
   "commands": [
     {
       "commandKind": "global",
-      "name": "gen",
+      "name": "create",
       "summary": "Scaffolding tool",
       "description": "Generates (parts of) projects based on a template",
       "safeForSimultaneousRushProcesses": false,
