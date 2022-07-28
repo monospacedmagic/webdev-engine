@@ -1,7 +1,8 @@
 #!/bin/bash
 
 shell_name="${SHELL##*/}"
-MONOREPO_ROOT="$(dirname $(readlink -f $0))/../.."
+SCRIPTS_DIR="$(dirname $(readlink -f $0))"
+MONOREPO_ROOT="${SCRIPTS_DIR}/../.."
 
 if [ $shell_name = "zsh" ]
 then
@@ -80,8 +81,8 @@ fi
 if ! command -v rush &> /dev/null
 then
     echo -n "Installing Rush... "
-    local RUSH_VERSION=$(node -p "require('./rush.json').rushVersion")
-    npm install -g rush@"${RUSH_VERSION}" > /dev/null
+    local rushversion=$(node -p "require(\"${SCRIPTS_DIR}/get-rush-version.js\").rushVersion")
+    npm install -g @microsoft/rush@"${rushversion}" &> /dev/null
     if [ $? -eq 0 ]
     then
         echo "OK!"
